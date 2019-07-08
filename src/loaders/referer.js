@@ -1,4 +1,4 @@
-const handleManifest = require('./manifest');
+const handleManifest = require('reus-jagger-plugin/src/loaders/manifest');
 
 module.exports = function(workdir, config) {
   const manifest = handleManifest(workdir, config);

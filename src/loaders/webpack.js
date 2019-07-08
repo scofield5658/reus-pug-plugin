@@ -5,8 +5,8 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const getWebpackConfig = require('../configs/webpack.config');
 const getUtils = require('../helpers/utils');
-const handleAsset = require('./asset');
-const handleManifest = require('./manifest');
+const handleAsset = require('reus-jagger-plugin/src/loaders/asset');
+const handleManifest = require('reus-jagger-plugin/src/loaders/manifest');
 
 module.exports = function(workdir, config) {
   const webpackConfig = getWebpackConfig(config);

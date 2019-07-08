@@ -23,7 +23,18 @@ module.exports = function(config) {
         },
         {
           test: /\.pcss$/i,
-          loader: ExtractTextPlugin.extract('css-loader!postcss-loader')
+          use : ExtractTextPlugin.extract([
+            'css-loader',
+            {
+                loader : 'postcss-loader',
+                options : {
+                  plugins: [
+                    require('precss'),
+                    require('autoprefixer'),
+                  ]
+                }
+            },
+          ]),
         },
         {
           test: config.assets,

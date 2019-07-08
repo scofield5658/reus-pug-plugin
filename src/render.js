@@ -2,9 +2,9 @@ const path = require('path');
 const url = require('url');
 const minify = require('html-minifier');
 const pug = require('pug');
-const handleManifest = require('./loaders/manifest');
-const handleAsset = require('./loaders/asset');
-const handleReferer = require('./loaders/referer');
+const handleManifest = require('reus-jagger-plugin/src/loaders/manifest');
+const handleAsset = require('reus-jagger-plugin/src/loaders/asset');
+const handleReferer = require('reus-jagger-plugin/src/loaders/referer');
 const handleSsr = require('./loaders/ssr');
 const getUtils = require('./helpers/utils');
 
