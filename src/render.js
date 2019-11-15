@@ -5,8 +5,9 @@ const pug = require('pug');
 const handleManifest = require('reus-jagger-plugin/src/loaders/manifest');
 const handleAsset = require('reus-jagger-plugin/src/loaders/asset');
 const handleReferer = require('reus-jagger-plugin/src/loaders/referer');
-const handleSsr = require('./loaders/ssr');
+const handleSsr = require('reus-jagger-plugin/src/loaders/ssr');
 const getUtils = require('./helpers/utils');
+const handleAssetHelper = require('./helpers/asset')
 
 module.exports = function(workdir, config) {
   const {srcRoute, srcUrl, writefile, abssrc, abstmp, absdest, abs2rel, tgtURL} = getUtils(config, workdir);
@@ -17,9 +18,9 @@ module.exports = function(workdir, config) {
   }
 
   const manifest = handleManifest(workdir, config);
-  const asset = handleAsset(workdir, config);
   const referer = handleReferer(workdir, config);
   const ssr = handleSsr(workdir, config);
+  const asset = handleAssetHelper(handleAsset(workdir, config));
 
   const getRoute = (route) => {
     for (const { path: name } of routes) {
@@ -105,7 +106,7 @@ module.exports = function(workdir, config) {
 
     // delete tags
     for (const {tagname} of tags) {
-      html = html.replace(new RegExp(`<${tagname} ([^>]+)></${tagname}>`, 'gmi'), '');
+      html = html.replace(new RegExp(`${tagname}\\((.*)\\)$`, 'gmi'), '');
     }
 
     // attach res
