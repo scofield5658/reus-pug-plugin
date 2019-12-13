@@ -1,6 +1,6 @@
 {
   "name": "reus-pug-plugin",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "license": "MIT",
   "author": "guozhi <guozhi5658@gmail.com>",
   "scripts": {
@@ -16,7 +16,7 @@
     "url": "^0.11.0"
   },
   "peerDependencies": {
-    "reus-jagger-plugin": "^0.6.2",
+    "reus-jagger-plugin": "^0.6.3",
     "reus.js": "^1.2.0"
   },
   "devDependencies": {

@@ -21,7 +21,7 @@ module.exports = function(assetJagger) {
             to: 'href="$TO"'
           },
           {
-            match: '(\\w+\\().*url=.*\\)$',
+            match: '(\\w+\\().*url.*\\)$',
             from: 'url\\([\'"]?([^\'")]+)[\'"]?\\)',
             to: 'url($TO)'
           }
