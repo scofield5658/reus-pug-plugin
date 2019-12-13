@@ -106,7 +106,7 @@ module.exports = function(workdir, config) {
 
     // delete tags
     for (const {tagname} of tags) {
-      html = html.replace(new RegExp(`${tagname}\\((.*)\\)$`, 'gmi'), '');
+      html = html.replace(new RegExp(`<${tagname} ([^>]+)></${tagname}>`, 'gmi'), '');
     }
 
     // attach res
